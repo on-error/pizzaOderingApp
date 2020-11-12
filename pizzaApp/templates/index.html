@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Welcome!!</span>
+    <a href="/login/"><input type="button" class="btn btn-danger" value="LOGIN"></a> 
+  </nav>
+
+<div class="container" style="background-color: orange; width: 400px; padding: 3%;margin: 2%;">
+    <form method="POST" action="/signupuser/">
+        {% csrf_token %}
+        <input type="text" name="username" style="margin: 2%;" placeholder="Username" class="form-control">
+        <input type="password" name="password" style="margin: 2%;" placeholder="Password" class="form-control">
+        <input type="number" name="mobileno" placeholder="Mobile No." style="margin: 2%;" class="form-control">
+        <input style="margin: auto; display:block;" type="submit" name="btn" class="btn btn-success" value="SIGN UP">
+        {% for message in messages %}
+        <p style="color: red; font-weight: bold; font-size: 20px;text-align: center;"> {{message}} </p>
+        {% endfor %}
+    </form>
+</div>
+
+  {% endblock %}
